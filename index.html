@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AR Restaurant Menu</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        text-align: center;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      .header {
+        padding: 20px 16px 10px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 22px;
+      }
+      .header p {
+        margin: 6px 0 0;
+        color: #666;
+        font-size: 14px;
+      }
+      model-viewer {
+        width: 100vw;
+        height: 65vh;
+        background-color: #ffffff;
+      }
+      .order-box {
+        padding: 16px;
+      }
+      button {
+        background-color: #007aff;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Signature Dish</h1>
+      <p>Tap the AR badge on the model to place it on your table.</p>
+    </div>
+
+    <model-viewer src="3DModel.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 93deg auto" auto-rotate camera-orbit="120deg 50.42deg 1.554m" field-of-view="30deg">
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
+
+    <div class="order-box">
+      <button onclick="alert('Item added to Table Order!')">Add to Order</button>
+    </div>
+  </body>
+</html>
